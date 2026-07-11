@@ -7,15 +7,6 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.sass'
 })
 export class App {
-  protected readonly title = signal('movie-rating-app');
-
-  counter = 0
-
-  up(): void {
-    this.counter++
-  }
-  down(): void {
-    this.counter--
-  }
+  
 }
 

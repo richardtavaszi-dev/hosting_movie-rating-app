@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { Dasboard } from './dasboard/dasboard';
+import { Dashboard } from './dashboard/dashboard';
+import { Navbar } from './navbar/navbar';
 
 @NgModule({
-  declarations: [App, Dasboard],
+  declarations: [App, Dashboard, Navbar],
   imports: [BrowserModule, AppRoutingModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

@@ -1,1 +1,5 @@
-export class Movie {}
+export class Movie {
+    title: string = ""
+    genre: string = ""
+    year: number = 0
+}
