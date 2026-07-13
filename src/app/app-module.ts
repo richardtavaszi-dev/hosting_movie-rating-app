@@ -16,11 +16,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule, 
     AppRoutingModule, 
     FormsModule
-    // A Firebase kikerült innen az imports-ból!
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    // --- FIREBASE BEKÖTÉSE IDE JÖN A PROVIDERS KÖZÉ ---
     provideFirebaseApp(() => initializeApp({
       apiKey: "AIzaSyDB1jQFOYSX-d4LLnPdx_-FOhjrEES4PyM",
       authDomain: "movie-rating-app-b3988.firebaseapp.com",
@@ -32,7 +30,6 @@ import { FormsModule } from '@angular/forms';
       measurementId: "G-QPFXDLK639"
     })),
     provideDatabase(() => getDatabase())
-    // --- FIREBASE BEKÖTÉSE EDDIG ---
   ],
   bootstrap: [App],
 })
