@@ -1,70 +1,76 @@
 <div class="container-fluid">
-  <div class="container px-4 mt-4">
-    <div class="row gx-5">
-      
-      <div class="col-md-4">
-        <h3>Filmek Értékelése</h3>
-        <div class="p-3">
-          <form class="row g-3">
-            <div class="col-12">
-              <h5>Új film hozzáadása</h5>
-              <br>
-              <label class="form-label">Cím</label>
-              <input type="text" class="form-control" id="cim" placeholder="Film címe" name="title" [(ngModel)]="movie.title">
-            </div>
-            
-            <div class="col-12">
-              <label class="form-label">Műfaj</label>
-              <input type="text" class="form-control" id="mufaj" placeholder="Műfaj" name="genre" [(ngModel)]="movie.genre">
-            </div>
-            
-            <div class="col-12">
-              <label class="form-label">Évszám</label>
-              <input type="number" class="form-control" id="ev" placeholder="Évszám" name="year" [(ngModel)]="movie.year">
-            </div>
-            
-            <div class="col-12">
-              <label class="form-label">Kép URL (opcionális)</label>
-              <input type="url" class="form-control" id="jpgurl" placeholder="https://movies.com/picture.jpg" name="imageUrl" [(ngModel)]="movie.imageUrl">
-            </div>
+    <div class="container px-4">
+        <div class="row gx-5">
+            <div class="col">
+                <h3>Filmek Értékelése</h3>
+                <div class="p-3">
+                    <form class="row g-3">
+                        <div class="col-6">
+                            <h5>Új film hozzáadása</h5>
+                            <br>
+                            <label class="form-label">Cím</label>
+                            <input type="text" class="form-control" id="cim" placeholder="Film címe" [(ngModel)]="movie.title">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Műfaj</label>
+                            <input type="text" class="form-control" id="mufaj" placeholder="Műfaj" [(ngModel)]="movie.genre">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Évszám</label>
+                            <input type="number" class="form-control" id="ev" placeholder="Évszám" [(ngModel)]="movie.year">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Kép URL (opcionális)</label>
+                            <input type="url" class="form-control" id="jpgurl"
+                                placeholder="https://movies.com/picture.jpg" [(ngModel)]="movie.imageUrl">
+                        </div>
+                        <div class="col-12">
+                            <button (click)="create()" class="btn btn-primary">Film hozzáadása</button>
+                        </div>
 
-            <div class="col-12 mt-3">
-              <button type="button" class="btn btn-primary" (click)="create()">Film hozzáadása</button>
+                    </form>
+                </div>
             </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="col-md-8">
-        <h4 class="mt-2">Filmek listája</h4>
-        <table class="table mt-4">
-          <thead>
+            <div class="col">
+                <div class="p-3">
+                    <h5>Filmek listája</h5>
+                </div>
+                <table class="table">
+            <thead>
             <tr>
-              <th>Borító</th>
-              <th>Cím</th>
-              <th>Műfaj</th>
-              <th>Évszám</th>
-              <th>Átlagértékelés</th>
-              <th>Értékelések száma</th>
-              <th>Műveletek</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let m of movieService.movies; let i = index">
-              <td><b>{{ i + 1 }}.Filmkép</b></td>
-              <td>{{ m.title }}</td>
-              <td>{{ m.genre }}</td>
-              <td>{{ m.year }}</td>
-              <td>8.6</td>
-              <td>11</td>
-              <td>
-                <button class="btn btn-info btn-sm text-dark">Értékelés<br>írása</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <th scope="col">Borító</th>
+      <th scope="col">Cím</th>
+      <th scope="col">Műfaj</th>
+      <th scope="col">Évszám</th>
+      <th scope="col">Átlagértékelés</th>
+      <th scope="col">Értékelések száma</th>
+      <th scope="col">Műveletek</th>
+    </tr>
+            </thead>
+            <tbody>
+    <tr>
+      <th scope="row">1.Filmkép</th>
+      <td>Életrevalók</td>
+      <td>Életrajz</td>
+      <td>2000</td>
+      <td>8.6</td>
+      <td>11</td>
+      <td><button type="button" class="btn btn-info btn-sm">Értékelés írása</button></td>
+    </tr>
+    <tr>
+      <th scope="row">2.Filmkép</th>
+      <td>Superman</td>
+      <td>Akció</td>
+      <td>2010</td>
+      <td>8.6</td>
+      <td>11</td>
+      <td><button type="button" class="btn btn-info btn-sm">Értékelés írása</button></td>
+    </tr>
+            </tbody>
+            </table>
 
+
+            </div>
+        </div>
     </div>
-  </div>
 </div>

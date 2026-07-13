@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Movie } from './movie';
-import { Database, get, ref } from 'firebase/database';
+import { Database, get, ref } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'

@@ -5,7 +5,7 @@ import { MovieService } from '../movie.service';
 @Component({
   selector: 'app-dashboard',
   standalone: false,
-  templateUrl: './dashboard.sass',
+  templateUrl: './dashboard.html',
   styleUrl: './dashboard.sass',
 })
 export class Dashboard {
