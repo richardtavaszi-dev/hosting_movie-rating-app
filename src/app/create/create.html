@@ -1,1 +1,29 @@
-<p>create works!</p>
+<div class="p-3">
+  <form class="row g-3">
+    <div class="col-12">
+      <h5>Új film hozzáadása</h5>
+      <br>
+      <label class="form-label">Cím</label>
+      <input type="text" class="form-control" [(ngModel)]="movie.title" name="title" placeholder="Film címe">
+    </div>
+    
+    <div class="col-12">
+      <label class="form-label">Műfaj</label>
+      <input type="text" class="form-control" [(ngModel)]="movie.genre" name="genre" placeholder="Műfaj">
+    </div>
+    
+    <div class="col-12">
+      <label class="form-label">Évszám</label>
+      <input type="number" class="form-control" [(ngModel)]="movie.year" name="year" placeholder="Évszám">
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Kép URL (választható)</label>
+      <input type="text" class="form-control" [(ngModel)]="movie.imageUrl" name="url" placeholder="http://movie.com/image.jpg">
+    </div>
+
+    <div class="col-12 mt-3">
+      <button type="button" class="btn btn-primary" (click)="create()">Film hozzáadása</button>
+    </div>
+  </form>
+</div>
