@@ -27,8 +27,11 @@
         <td>{{m.avgRating}}</td>
         <td>{{m.rating?.length || 0}}</td>
         <td>
-          <button class="btn btn-primary btn-sm me-2"  (click)="movieService.selectedMovie = m">Értékelés írása</button>
-          <button class="btn btn-primary btn-sm" (click)="movieService.selectedMovie = m">Értékelések</button>
+          <button class="btn btn-primary btn-sm me-2"
+            (click)="movieService.selectedMovie = m; movieService.moreAddOrList = 'add'">Értékelés írása</button>
+
+          <button class="btn btn-primary btn-sm"
+            (click)="movieService.selectedMovie = m; movieService.moreAddOrList = 'list'">Értékelések</button>
         </td>
       </tr>
     </tbody>

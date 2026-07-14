@@ -50,6 +50,12 @@ export class MovieService {
 
 movie.avgRating = Math.round(MathRatingAvg * 10) / 10;
 
+const index = this.movies.indexOf(movie);
+    if (index !== -1) {
+      this.movies[index] = { ...movie };
+    }
+    this.movies = [...this.movies];
+
   const movieRef = ref(this.db, 'movies/' + (movie as any).key); 
   update(movieRef, {
     rating: movie.rating,

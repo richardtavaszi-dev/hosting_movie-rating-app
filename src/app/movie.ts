@@ -9,7 +9,7 @@ export class Movie {
 }
 
 export class Rating {
-  reviewerName: string = '';
+  name: string = '';
   text: string = ''; 
-  score: number = 0; 
+  score: number = 5; 
 }

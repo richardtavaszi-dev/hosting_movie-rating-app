@@ -5,8 +5,9 @@
       <app-create></app-create>
     </div>
     <app-list></app-list>
-    <div class="col-md-8">
-      <app-rating *ngIf="movieService.selectedMovie" [movie]="movieService.selectedMovie"></app-rating>
+    <app-rating-list *ngIf="movieService.selectedMovie && movieService.moreAddOrList === 'list'" [movie]="movieService.selectedMovie"></app-rating-list>
+
+<app-rating *ngIf="movieService.selectedMovie && movieService.moreAddOrList === 'add'" [movie]="movieService.selectedMovie"></app-rating>
 
     </div>
   </div>

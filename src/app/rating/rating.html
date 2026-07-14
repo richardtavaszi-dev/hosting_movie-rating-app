@@ -7,20 +7,20 @@
       <div class="col-md-12">
         <label class="form-label">Értékelő neve <span class="text-danger"
             title="Név megadása kötelező!!">*</span></label>
-        <input type="text" class="form-control" [(ngModel)]="newRating.reviewerName" name="revName"
+        <input type="text" class="form-control" [(ngModel)]="newRating.name" name="name"
           placeholder="Írd be a neved...">
       </div>
       <div class="col-12">
 
         <div class="col-md-12 mt-2 mb-2">
           <label class="form-label">Pontszám (1-10) <span class="text-danger" title="Értékelés 1-10 között!">*</span></label>
-          <input type="number" class="form-control" [(ngModel)]="newRating.score" name="revScore" min="1" max="10">
+          <input type="number" class="form-control" [(ngModel)]="newRating.score" name="score" min="1" max="10">
         </div>
         <label class="form-label">
-          Értékelés szövege <span class="text-danger" title="Min. 50 karakter karakter!">*</span>
+          Értékelés szövege <span class="text-danger" title="Min. 50 karakter!">*</span>
 
         </label>
-        <textarea class="form-control" [(ngModel)]="newRating.text" name="revText" rows="4"
+        <textarea class="form-control" [(ngModel)]="newRating.text" name="text" rows="4"
           placeholder="Írd le a véleményed a filmről..."></textarea>
       </div>
 
