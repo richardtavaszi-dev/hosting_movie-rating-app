@@ -4,14 +4,13 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { Dashboard } from './dashboard/dashboard';
 import { Create } from './create/create';
 import { List } from './list/list';
 import { Rating } from './rating/rating';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [App, Dashboard, Create, List, Rating],
+  declarations: [App, Create, List, Rating],
   imports: [
     BrowserModule, 
     AppRoutingModule, 
