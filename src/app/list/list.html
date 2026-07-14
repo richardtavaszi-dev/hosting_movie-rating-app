@@ -25,7 +25,9 @@
         <td>{{ m.genre }}</td>
         <td>{{ m.year }}</td>
         <td>{{m.avgRating}}</td>
-        <td>{{m.rewiew}}</td>
-        <td>{{m.actions}}</td>
+        <td>{{m.rating}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="selectedMovie = m">Értékelés</button>
+        </td>
       </tr>
     </tbody>

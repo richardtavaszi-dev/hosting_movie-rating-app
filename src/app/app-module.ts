@@ -6,11 +6,11 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Create } from './create/create';
 import { List } from './list/list';
-import { Rating } from './rating/rating';
+import { Ratings } from './rating/rating';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [App, Create, List, Rating],
+  declarations: [App, Create, List, Ratings],
   imports: [
     BrowserModule, 
     AppRoutingModule, 

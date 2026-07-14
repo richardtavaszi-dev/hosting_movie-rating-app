@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Movie, Rewiew } from '../movie';
+import { Movie, Rating } from '../movie';
 import { MovieService } from '../movie.service';
 
 @Component({
@@ -8,21 +8,22 @@ import { MovieService } from '../movie.service';
   templateUrl: './rating.html',
   styleUrl: './rating.sass'
 })
-export class Rating {
+export class Ratings {
   @Input() movie!: Movie;
-  newRewiew: Rewiew = new Rewiew();
+  newRating: Rating = new Rating();
 
   constructor(public movieService: MovieService) { }
 
   get isReviewValid(): boolean {
-    const isTextOk = this.newRewiew.text && this.newRewiew.text.trim().length >= 50;
-    const isScoreOk = this.newRewiew.score >= 1 && this.newRewiew.score <= 10;
+    const isTextOk = this.newRating.text && this.newRating.text.trim().length >= 50;
+    const isScoreOk = this.newRating.score >= 1 && this.newRating.score <= 10;
     return !!(isTextOk && isScoreOk);
   }
   saveRating() {
-    if (this.newRewiew.text.length >= 50 && this.newRewiew.score >= 1 && this.newRewiew.score <= 10) {
-      this.movieService.addRewiew(this.movie, this.newRewiew);
-    }
+
+    this.movieService.addRating(this.movie, this.newRating);
+    
+    this.newRating = new Rating();
   }
 }
 

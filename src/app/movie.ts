@@ -4,12 +4,11 @@ export class Movie {
   year: number = 0;
   imageUrl: string = '';
   avgRating: number = 0
-  rewiew : number = 0
   actions: boolean = true
-  rewiews: Rewiew[] = [];
+  rating: Rating[] = [];
 }
 
-export class Rewiew {
+export class Rating {
   text: string = ''; 
-  score: number = 10; 
+  score: number = 0; 
 }

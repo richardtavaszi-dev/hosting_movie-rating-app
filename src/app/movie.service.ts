@@ -1,14 +1,12 @@
 import { Injectable, inject } from '@angular/core'; 
-import { Database, get, push, ref, set } from '@angular/fire/database';
-import { Movie, Rewiew } from './movie';
+import { Database, get, push, ref, set, update } from '@angular/fire/database';
+import { Movie, Rating } from './movie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-  addRewiew(movie: Movie, newReview: Rewiew) {
-    throw new Error('Method not implemented.');
-  }
+  selectedMovie: Movie | null = null;
   movies: Movie[] = [];
   path: string = "movies";
   db = inject(Database);
@@ -25,6 +23,38 @@ export class MovieService {
       }
     });
   }
+  saveRating(movie: Movie, rating: Rating) {
+    if (!movie.rating) {
+      movie.rating = [];
+    }
+    movie.rating.push(rating);
+    
+    const sum = movie.rating.reduce((acc, curr) => acc + curr.score, 0);
+    movie.avgRating = sum / movie.rating.length;
+
+    const dbRef = ref(this.db, this.path);
+    set(dbRef, this.movies);
+  }
+
+  addRating(movie: Movie, rating : Rating) {
+
+  if (!movie.rating) movie.rating = [];
+  movie.rating.push(rating);
+
+  let sum = 0;
+  for (let i = 0; i < movie.rating.length; i++) {
+    sum = sum + movie.rating[i].score;
+  }
+
+movie.avgRating = sum / movie.rating.length;
+
+  const movieRef = ref(this.db, 'movies/' + (movie as any).key); 
+  update(movieRef, {
+    rewiews: movie.rating,
+    avgRating: movie.avgRating,
+    rewiew: movie.rating
+  });
+}
 
   readData() {
     const dbRef = ref(this.db, this.path);
