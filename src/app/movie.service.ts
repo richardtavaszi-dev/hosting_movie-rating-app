@@ -1,35 +1,24 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core'; 
+import { Database, get, push, ref, set } from '@angular/fire/database';
 import { Movie } from './movie';
-import { Database, get, ref } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-  
-  movies: Movie[] = [
-    { 
-      title: 'Életrevalók', 
-      genre: 'Életrajz', 
-      year: 2000, 
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRMNWny5_GXISt5tbL_fp1QskKjYAJzlFPDrQGCryCeQ&s=10' 
-    },
-    { 
-      title: 'Superman', 
-      genre: 'Akció', 
-      year: 2010, 
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAt9PXdu3mlJ_aUO9x7YtakOS1mkfLD03J_DojWBqKPw&s=10'
-}];
+  movies: Movie[] = [];
   path: string = "movies";
+  db = inject(Database);
 
-  constructor(private db: Database) {
+  constructor() {
     this.readData().then(snapshot => {
       if (snapshot.exists()) {
-        const data = snapshot.val();
+        const data = snapshot.val()
+        
         this.movies = Object.values(data);
-        console.log("Sikeres lekérdezés:", this.movies);
+        console.log(this.movies)
       } else {
-        console.error("Nincs adat az adatbázisban");
+        console.error("Nincs adat")
       }
     });
   }
@@ -40,6 +29,13 @@ export class MovieService {
   }
 
   writeData(movie: Movie) {
-    this.movies.push(movie);
+   this.movies.push(movie);
+    const dbRef = ref(this.db, 'movies');
+    const newMovieRef = push(dbRef); 
+    
+    set(newMovieRef, movie)
+      .then(() => {
+        this.movies.push(movie); 
+      })
   }
 }
