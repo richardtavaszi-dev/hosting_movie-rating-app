@@ -28,7 +28,7 @@ export class MovieService {
     return get(dbRef);
   }
 
-  writeData(movie: Movie) {
+  writeData(movie: Movie): void {
    this.movies.push(movie);
     const dbRef = ref(this.db, 'movies');
     const newMovieRef = push(dbRef); 

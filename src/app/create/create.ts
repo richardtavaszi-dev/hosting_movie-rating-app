@@ -18,5 +18,13 @@ export class Create {
     this.movieService.writeData(this.movie);
     this.movie = new Movie();
   }
+
+  get isFormValid(): boolean {
+    if (!this.movie.title || this.movie.title.length < 3) return false;
+    if (!this.movie.genre || this.movie.genre.length < 3) return false;
+    if (!this.movie.year || this.movie.year < 1940) return false;
+    
+    return true;
+  }
 }
 
