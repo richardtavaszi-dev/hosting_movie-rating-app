@@ -8,7 +8,6 @@ import { Create } from './create/create';
 import { List } from './list/list';
 import { Ratings } from './rating/rating';
 import { FormsModule } from '@angular/forms';
-
 @NgModule({
   declarations: [App, Create, List, Ratings],
   imports: [

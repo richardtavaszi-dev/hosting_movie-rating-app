@@ -15,9 +15,10 @@ export class Ratings {
   constructor(public movieService: MovieService) { }
 
   get isReviewValid(): boolean {
+    const isNameOk = this.newRating.reviewerName && this.newRating.reviewerName.trim().length > 0;
     const isTextOk = this.newRating.text && this.newRating.text.trim().length >= 50;
     const isScoreOk = this.newRating.score >= 1 && this.newRating.score <= 10;
-    return !!(isTextOk && isScoreOk);
+    return !!(isNameOk && isTextOk && isScoreOk);
   }
   saveRating() {
 

@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { MovieService } from './movie.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,6 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.sass'
 })
 export class App {
-  
+  constructor(public movieService: MovieService) {}
 }
 

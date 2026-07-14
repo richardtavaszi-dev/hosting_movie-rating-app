@@ -1,13 +1,12 @@
 <div class="container-fluid mt-4">
   <div class="row gx-5">
-    
+
     <div class="col-md-4">
       <app-create></app-create>
     </div>
-    
+    <app-list></app-list>
     <div class="col-md-8">
-      <app-list></app-list>
-    </div>
+      <app-rating *ngIf="movieService.selectedMovie" [movie]="movieService.selectedMovie"></app-rating>
 
+    </div>
   </div>
-</div>

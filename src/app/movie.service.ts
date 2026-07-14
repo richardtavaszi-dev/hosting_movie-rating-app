@@ -7,6 +7,7 @@ import { Movie, Rating } from './movie';
 })
 export class MovieService {
   selectedMovie: Movie | null = null;
+  moreAddOrList: 'add' | 'list' | null = null;
   movies: Movie[] = [];
   path: string = "movies";
   db = inject(Database);
@@ -14,26 +15,26 @@ export class MovieService {
   constructor() {
     this.readData().then(snapshot => {
       if (snapshot.exists()) {
-        const data = snapshot.val()
+        const data = snapshot.val();
+        this.movies.length = 0;
+
+        Object.keys(data).forEach(key => {
+          let movie = { ...data[key], key: key } as Movie;
+          
+          if (movie.rating) {
+            movie.rating = Object.values(movie.rating);
+          } else {
+            movie.rating = [];
+          }
+          
+          this.movies.push(movie); 
+        });
         
-        this.movies = Object.values(data);
-        console.log(this.movies)
+        console.log(this.movies);
       } else {
-        console.error("Nincs adat")
+        console.error("Nincs adat");
       }
     });
-  }
-  saveRating(movie: Movie, rating: Rating) {
-    if (!movie.rating) {
-      movie.rating = [];
-    }
-    movie.rating.push(rating);
-    
-    const sum = movie.rating.reduce((acc, curr) => acc + curr.score, 0);
-    movie.avgRating = sum / movie.rating.length;
-
-    const dbRef = ref(this.db, this.path);
-    set(dbRef, this.movies);
   }
 
   addRating(movie: Movie, rating : Rating) {
@@ -45,14 +46,14 @@ export class MovieService {
   for (let i = 0; i < movie.rating.length; i++) {
     sum = sum + movie.rating[i].score;
   }
+  const MathRatingAvg = sum / movie.rating.length;
 
-movie.avgRating = sum / movie.rating.length;
+movie.avgRating = Math.round(MathRatingAvg * 10) / 10;
 
   const movieRef = ref(this.db, 'movies/' + (movie as any).key); 
   update(movieRef, {
-    rewiews: movie.rating,
+    rating: movie.rating,
     avgRating: movie.avgRating,
-    rewiew: movie.rating
   });
 }
 
@@ -62,13 +63,13 @@ movie.avgRating = sum / movie.rating.length;
   }
 
   writeData(movie: Movie): void {
-   this.movies.push(movie);
     const dbRef = ref(this.db, 'movies');
     const newMovieRef = push(dbRef); 
     
-    set(newMovieRef, movie)
-      .then(() => {
-        this.movies.push(movie); 
-      })
+    set(newMovieRef, movie).then(() => {
+    
+      (movie as any).key = newMovieRef.key; 
+        this.movies.push(movie);
+      });
   }
 }
