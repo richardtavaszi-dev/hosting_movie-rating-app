@@ -8,5 +8,5 @@ import { MovieService } from '../movie.service';
   styleUrl: './list.sass',
 })
 export class List {
-  constructor(public movieService : MovieService){}
+  constructor(public movieService: MovieService) { }
 }

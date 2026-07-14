@@ -1,1 +1,27 @@
-<p>rating works!</p>
+<div class="card mt-4 border-warning shadow">
+  <div class="card-header bg-warning text-dark">
+    <h5 class="mb-0">Értékelés írása: <strong>{{ movie.title }}</strong></h5>
+  </div>
+  <div class="card-body">
+    <form class="row g-3">
+
+      <div class="col-md-12">
+        <label class="form-label">Pontszám (1-10) <span class="text-danger">*</span></label>
+        <input type="number" class="form-control" [(ngModel)]="newRewiew.score" name="revScore" min="1" max="10">
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">
+          Értékelés szövege <span class="text-danger">*</span>
+          <small class="text-muted">(Min. 50 karakter, most: {{ newRewiew.text ? newRewiew.text.length : 0 }}
+            karakter)</small>
+        </label>
+        <textarea class="form-control" [(ngModel)]="newRewiew.text" name="revText" rows="4"
+          placeholder="Írd le a véleményed részletesen a filmről..."></textarea>
+      </div>
+
+      <div class="col-12 mt-2">
+        <button type="button" class="btn btn-success me-2" (click)="saveRating()" [disabled]="!isReviewValid">
+          Értékelés beküldése
+        </button>
+      </div>

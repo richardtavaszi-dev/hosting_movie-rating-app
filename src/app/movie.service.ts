@@ -1,11 +1,14 @@
 import { Injectable, inject } from '@angular/core'; 
 import { Database, get, push, ref, set } from '@angular/fire/database';
-import { Movie } from './movie';
+import { Movie, Rewiew } from './movie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
+  addRewiew(movie: Movie, newReview: Rewiew) {
+    throw new Error('Method not implemented.');
+  }
   movies: Movie[] = [];
   path: string = "movies";
   db = inject(Database);

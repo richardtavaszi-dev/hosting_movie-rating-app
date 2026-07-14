@@ -7,18 +7,25 @@
         <th>Cím</th>
         <th>Műfaj</th>
         <th>Évszám</th>
+        <th>Átlagértékelés</th>
+        <th>Értékelések</th>
+        <th>Műveletek</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let m of movieService.movies;">
-        
+
         <td>
-  <img [src]="m.imageUrl ? m.imageUrl : 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=100'" 
-       style="width: 50px; height: 75px;">
-</td>
-        
+          <img
+            [src]="m.imageUrl || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv3jDP1-DeVYTgj5FbHMzR59fSnSRsns0bVlTDOqTrlQ&s'"
+            style="width: 50px; height: 75px;">
+        </td>
+
         <td>{{ m.title }}</td>
         <td>{{ m.genre }}</td>
         <td>{{ m.year }}</td>
+        <td>{{m.avgRating}}</td>
+        <td>{{m.rewiew}}</td>
+        <td>{{m.actions}}</td>
       </tr>
     </tbody>
