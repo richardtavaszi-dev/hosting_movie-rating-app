@@ -13,7 +13,7 @@ export class MovieService {
   db = inject(Database);
 
   constructor() {
-    this.readData().then(snapshot => {
+    this.readData().then((snapshot: any) => {
       if (snapshot.exists()) {
         const data = snapshot.val();
         this.movies.length = 0;
