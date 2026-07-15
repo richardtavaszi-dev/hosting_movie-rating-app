@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component} from '@angular/core';
 import { MovieService } from './movie.service';
 
 @Component({
@@ -8,6 +8,6 @@ import { MovieService } from './movie.service';
   styleUrl: './app.sass'
 })
 export class App {
-  constructor(public movieService: MovieService) {}
+  constructor(public movieService: MovieService){}
 }
 

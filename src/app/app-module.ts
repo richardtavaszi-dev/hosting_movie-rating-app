@@ -9,12 +9,15 @@ import { List } from './list/list';
 import { Ratings } from './rating/rating';
 import { FormsModule } from '@angular/forms';
 import { RatingList } from './rating-list/rating-list';
+
 @NgModule({
   declarations: [App, Create, List, Ratings, RatingList],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
+
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideFirebaseApp(() =>
+
       initializeApp({
         apiKey: 'AIzaSyDB1jQFOYSX-d4LLnPdx_-FOhjrEES4PyM',
         authDomain: 'movie-rating-app-b3988.firebaseapp.com',
@@ -27,6 +30,7 @@ import { RatingList } from './rating-list/rating-list';
         measurementId: 'G-QPFXDLK639',
       }),
     ),
+    
     provideDatabase(() => getDatabase()),
   ],
   bootstrap: [App],

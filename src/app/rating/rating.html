@@ -4,20 +4,27 @@
   </div>
   <div class="card-body">
     <form class="row g-3">
+
       <div class="col-md-12">
         <label class="form-label">Értékelő neve <span class="text-danger"
             title="Név megadása kötelező!!">*</span></label>
+
         <input type="text" class="form-control" [(ngModel)]="newRating.name" name="name"
           placeholder="Írd be a neved...">
-      </div>
-      <div class="col-12">
 
+      </div>
+
+      <div class="col-12">
         <div class="col-md-12 mt-2 mb-2">
-          <label class="form-label">Pontszám (1-10) <span class="text-danger" title="Értékelés 1-10 között!">*</span></label>
+          <label class="form-label">Pontszám (1-10)
+            <span class="text-danger" title="Értékelés 1-10 között!">*</span>
+          </label>
+
           <input type="number" class="form-control" [(ngModel)]="newRating.score" name="score" min="1" max="10">
         </div>
-        <label class="form-label">
-          Értékelés szövege <span class="text-danger" title="Min. 50 karakter!">*</span>
+
+        <label class="form-label">Értékelés szövege
+          <span class="text-danger" title="Min. 50 karakter!">*</span>
 
         </label>
         <textarea class="form-control" [(ngModel)]="newRating.text" name="text" rows="4"

@@ -12,7 +12,7 @@ export class Create {
 
   movie: Movie = new Movie();
 
-  constructor(public movieService: MovieService) {}
+  constructor(public movieService: MovieService) { }
 
   create() {
     this.movieService.writeData(this.movie);
@@ -23,7 +23,7 @@ export class Create {
     if (!this.movie.title || this.movie.title.length < 3) return false;
     if (!this.movie.genre || this.movie.genre.length < 3) return false;
     if (!this.movie.year || this.movie.year < 1940) return false;
-    
+
     return true;
   }
 }

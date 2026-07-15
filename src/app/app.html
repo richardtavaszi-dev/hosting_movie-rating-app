@@ -1,13 +1,26 @@
 <div class="container-fluid mt-4">
-  <div class="row gx-5">
+
+  <div class="row">
 
     <div class="col-md-4">
       <app-create></app-create>
     </div>
-    <app-list></app-list>
-    <app-rating-list *ngIf="movieService.selectedMovie && movieService.moreAddOrList === 'list'" [movie]="movieService.selectedMovie"></app-rating-list>
 
-<app-rating *ngIf="movieService.selectedMovie && movieService.moreAddOrList === 'add'" [movie]="movieService.selectedMovie"></app-rating>
+    <div class="col-md-8">
+      <app-list></app-list>
+    </div>
+
+  </div>
+
+  <div class="row mt-4">
+
+    <div class="col-12"> 
+      <app-rating-list *ngIf="movieService.selectedMovie && movieService.moreAddOrList === 'list'"
+        [movie]="movieService.selectedMovie"></app-rating-list>
+
+      <app-rating *ngIf="movieService.selectedMovie && movieService.moreAddOrList === 'add'"
+        [movie]="movieService.selectedMovie"></app-rating>
 
     </div>
   </div>
+</div>

@@ -25,7 +25,7 @@
         <td>{{ m.genre }}</td>
         <td>{{ m.year }}</td>
         <td>{{m.avgRating}}</td>
-        <td>{{m.rating?.length || 0}}</td>
+        <td>{{m.rating.length || 0}}</td>
         <td>
           <button class="btn btn-primary btn-sm me-2"
             (click)="movieService.selectedMovie = m; movieService.moreAddOrList = 'add'">Értékelés írása</button>

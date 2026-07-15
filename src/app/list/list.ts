@@ -10,7 +10,7 @@ import { Movie } from '../movie';
 })
 export class List {
   selectedMovie: Movie | null = null
-  
+
   constructor(public movieService: MovieService) {}
 
   get movies() {
